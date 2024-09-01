@@ -79,12 +79,9 @@ void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs)
     }
 }
 
-std::vector<std::string> docs;
-std::map<std::string, std::vector<Entry>> freq_dictionary;
 
 void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs)
 {
-    std::string word;
     for(int i = 0; i < input_docs.size(); ++i)
     {
         lineDivider(docs, input_docs[i]);
@@ -113,6 +110,7 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs)
         }
     }
 }
+
 std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word)
 {
     return freq_dictionary[word];

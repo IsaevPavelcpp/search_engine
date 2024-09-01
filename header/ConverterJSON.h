@@ -7,7 +7,11 @@
 #include <map>
 #include <string>
 #include <sstream>
-
+#include <iostream>
+#include "nlohmann/json.hpp"
+#include <fstream>
+#include <vector>
+#include <string>
 
 struct configuration
 {
@@ -18,8 +22,9 @@ struct configuration
 }; // структура для записи конфига
 
 struct RelativeIndex{
-    size_t doc_id;
-    float rank;
+    size_t doc_id = 0;
+    float rank = 0;
+
     bool operator ==(const RelativeIndex& other) const {
     return (doc_id == other.doc_id && rank == other.rank);
     }
@@ -27,6 +32,7 @@ struct RelativeIndex{
 
 class ConverterJSON
         {
+    configuration config;
 public:
     configuration GetTextDocuments();
     int GetResponsesLimit();

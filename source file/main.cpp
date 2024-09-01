@@ -3,8 +3,6 @@
 
 int main() {
     ::testing::InitGoogleTest();
-
-    std::cout << "Hello, World!" << std::endl;
     ConverterJSON convert_json;
     configuration config_str;
     std::vector<std::string> docs;

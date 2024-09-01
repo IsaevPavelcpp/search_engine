@@ -22,6 +22,8 @@ void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs)
 
 class InvertedIndex
 {
+    std::vector<std::string> docs;
+    std::map<std::string, std::vector<Entry>> freq_dictionary;
 public:
     void UpdateDocumentBase(std::vector<std::string> input_docs);
     std::vector<Entry> GetWordCount(const std::string& word);
