@@ -18,5 +18,7 @@ int main() {
     II.UpdateDocumentBase(docs);
     SearchServer SS(II);
     convert_json.putAnswers(SS.search(convert_json.GetRequests()));
+    std::cout << clock() << "\n";
     return RUN_ALL_TESTS();;
+
 }

@@ -67,7 +67,7 @@ TEST(TestCaseInvertedIndex, TestInvertedIndexMissingWord) {
     };
     TestInvertedIndexFunctionality(docs, requests, expected);
 }
-
+std::mutex mtx;
 void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs)
 {
     std::string word;
@@ -82,33 +82,37 @@ void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs)
 
 void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs)
 {
-    for(int i = 0; i < input_docs.size(); ++i)
-    {
-        lineDivider(docs, input_docs[i]);
-        Entry buf;
+        docs.clear();
+        docs.resize(input_docs.size());
+        std::vector <std::thread>threads;
+        for (int j = 0; j < docs.size(); ++j)
+        {
+            lineDivider(docs[j], input_docs[j]);
+            threads.emplace_back(std::thread(&InvertedIndex::countMatch, this));
+        }
         for(int j = 0; j < docs.size(); ++j)
         {
-            if(freq_dictionary.count(docs[j]))
-            {
-                if(i > freq_dictionary[docs[j]].size()-1)
-                {
-                    buf.doc_id = i;
-                    buf.count = 1;
-                    freq_dictionary[docs[j]].push_back(buf);
-                }
-                else if(i == freq_dictionary[docs[j]][i].doc_id)
-                {
-                    freq_dictionary[docs[j]][i].count++;
-                }
+            threads[j].join();
+        }
+}
+
+void InvertedIndex::countMatch()
+{
+    std::lock_guard<std::mutex> lock(mtx);
+
+    Entry buf;
+    for (int j = 0; j < docs[i].size(); ++j) {
+        if (freq_dictionary.count(docs[i][j])) {
+            if (i > freq_dictionary[docs[i][j]].size() - 1) {
+                freq_dictionary[docs[i][j]].push_back({(size_t )i,1});
+            } else if (i == freq_dictionary[docs[i][j]][i].doc_id) {
+                freq_dictionary[docs[i][j]][i].count++;
             }
-            else if(!freq_dictionary.count(docs[j]) && docs[j] != " ")
-            {
-                buf.doc_id = i;
-                buf.count = 1;
-                freq_dictionary[docs[j]].push_back(buf);
-            }
+        } else if (!freq_dictionary.count(docs[i][j]) && docs[i][j] != " ") {
+            freq_dictionary[docs[i][j]].push_back({(size_t )i,1});
         }
     }
+    i++;
 }
 
 std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word)
