@@ -1,21 +1,31 @@
-{"answers":
-{"request 0":
-{"relevance":
-[{"docid ":0,"rank ":1.0},
-  {"docid ":2,"rank ":0.7142857313156128},
-  {"docid ":3,"rank ":0.5714285969734192},
-  {"docid ":1,"rank ":0.4285714328289032}],
-  "result":true},
-  "request 1":
-  {"relevance":
-  [{"docid ":0,"rank ":1.0},
-    {"docid ":3,"rank ":0.25}],
-    "result":true},
-  "request 2":
-  {"result":false},
-  "request 3":
-  {"relevance":
-  [{"docid ":0,"rank ":1.0},
-    {"docid ":1,"rank ":0.1666666716337204},
-    {"docid ":2,"rank ":0.1666666716337204}],
-    "result":true}}}
+{
+	"answers":{
+		"request 0":{
+			"result":true,
+			"relevance":{
+				"docid": 0, "rank": 1,
+				"docid": 2, "rank": 0.714286,
+				"docid": 3, "rank": 0.571429,
+				"docid": 1, "rank": 0.428571
+			}
+		},
+		"request 1":{
+			"result":true,
+			"relevance":{
+				"docid": 0, "rank": 1,
+				"docid": 3, "rank": 0.25
+			}
+		},
+		"request 2":{
+			"result":false
+		},
+		"request 3":{
+			"result":true,
+			"relevance":{
+				"docid": 0, "rank": 1,
+				"docid": 1, "rank": 0.166667,
+				"docid": 2, "rank": 0.166667
+			}
+		}
+	}
+ }

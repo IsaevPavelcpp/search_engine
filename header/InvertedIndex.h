@@ -1,4 +1,3 @@
-
 #ifndef SEARCH_ENGINE_INVERTEDINDEX_H
 #define SEARCH_ENGINE_INVERTEDINDEX_H
 
@@ -9,6 +8,7 @@
 #include "gtest/gtest.h"
 #include <mutex>
 #include <thread>
+
 struct Entry {
     size_t doc_id = 0, count = 0;
     // Данный оператор необходим для проведения тестовых сценариев
@@ -21,16 +21,15 @@ struct Entry {
 
 void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs);
 
-
 class InvertedIndex
 {
     std::vector<std::vector<std::string>> docs;
     std::map<std::string, std::vector<Entry>> freq_dictionary;
     int i = 0;
 public:
-    void UpdateDocumentBase(std::vector<std::string> input_docs);
-    std::vector<Entry> GetWordCount(const std::string& word);
-    void countMatch();
+    void UpdateDocumentBase(std::vector<std::string> input_docs) noexcept;
+    std::vector<Entry> GetWordCount(const std::string& word) noexcept;
+    void CountMatch() noexcept;
 };
 
 

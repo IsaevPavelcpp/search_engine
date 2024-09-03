@@ -67,7 +67,9 @@ TEST(TestCaseInvertedIndex, TestInvertedIndexMissingWord) {
     };
     TestInvertedIndexFunctionality(docs, requests, expected);
 }
+
 std::mutex mtx;
+
 void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs)
 {
     std::string word;
@@ -79,8 +81,8 @@ void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs)
     }
 }
 
-
-void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs)
+//принимает запросы и делит каждый на отдельные слова, в отельных потоках запускает поиск
+void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs)noexcept
 {
         docs.clear();
         docs.resize(input_docs.size());
@@ -88,34 +90,33 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs)
         for (int j = 0; j < docs.size(); ++j)
         {
             lineDivider(docs[j], input_docs[j]);
-            threads.emplace_back(std::thread(&InvertedIndex::countMatch, this));
+            threads.emplace_back(&InvertedIndex::CountMatch, this);
         }
         for(int j = 0; j < docs.size(); ++j)
         {
             threads[j].join();
         }
 }
-
-void InvertedIndex::countMatch()
+//основной поиск совпадений
+void InvertedIndex::CountMatch()noexcept
 {
     std::lock_guard<std::mutex> lock(mtx);
-
-    Entry buf;
-    for (int j = 0; j < docs[i].size(); ++j) {
-        if (freq_dictionary.count(docs[i][j])) {
-            if (i > freq_dictionary[docs[i][j]].size() - 1) {
-                freq_dictionary[docs[i][j]].push_back({(size_t )i,1});
-            } else if (i == freq_dictionary[docs[i][j]][i].doc_id) {
-                freq_dictionary[docs[i][j]][i].count++;
+    for (auto& word : docs[i]) {
+        if (freq_dictionary.count(word)) {
+            if (i > freq_dictionary[word].size() - 1) {
+                freq_dictionary[word].push_back({(size_t )i,1});
+            } else if (i == freq_dictionary[word][i].doc_id) {
+                freq_dictionary[word][i].count++;
             }
-        } else if (!freq_dictionary.count(docs[i][j]) && docs[i][j] != " ") {
-            freq_dictionary[docs[i][j]].push_back({(size_t )i,1});
+        } else if (!freq_dictionary.count(word) && word != " ") {
+            freq_dictionary[word].push_back({(size_t )i,1});
         }
     }
     i++;
 }
 
-std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word)
+//позволяет извлечь отдельное слово из словаря
+std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word)noexcept
 {
     return freq_dictionary[word];
 }

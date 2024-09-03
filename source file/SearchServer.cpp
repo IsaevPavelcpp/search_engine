@@ -89,58 +89,60 @@ TEST(TestCaseSearchServer, TestTop5) {
 }
 
 
-bool my_cmp(const RelativeIndex& a, const RelativeIndex& b)
-{
+bool my_cmp(const RelativeIndex& a, const RelativeIndex& b){ //фунция для сортировки
     return a.rank > b.rank;
 };
 
+SearchServer::SearchServer(InvertedIndex &idx) noexcept : _index(idx){};
 
-SearchServer::SearchServer(InvertedIndex &idx)
-{_index = idx;};
-
-std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<std::string>& queries_input) {
+// Метод обработки поисковых запросов
+std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<std::string>& queries_input)noexcept
+{
     std::vector<std::vector<RelativeIndex>> frequency;
     std::vector<std::string> dividerStr; // разделенный поисковый запрос
     std::vector<std::map<std::string, std::vector<Entry>>> sort_queries;// хранение совпадений по поисковому запросу
     std::vector<float> Rrel; // относительная релевантность
+    float Rmax; // максимальная релевантность по всем док.
     frequency.resize(queries_input.size());
-    float Rmax = 0; // максимальная релевантность по всем док.
     sort_queries.resize(queries_input.size());
 
     for (int i = 0; i < queries_input.size(); ++i) // поиск совпадений запроса в файлах
     {
         lineDivider(dividerStr, queries_input[i]);
-        for (int j = 0; j < dividerStr.size(); ++j) {
-            sort_queries[i][dividerStr[j]] = _index.GetWordCount(dividerStr[j]);
+        for (const auto& word : dividerStr) {
+            sort_queries[i][word] = _index.GetWordCount(word);
         }
     }
 
     std::map <size_t , float> buffer;
-    for (int i = 0; i < sort_queries.size(); ++i)// подсчет совпадений
+    int counter = 0;
+    for (auto& request : sort_queries)// подсчет совпадений
     {
-        for (auto it = sort_queries[i].begin(); it != sort_queries[i].end(); ++it) {
-            for (int j = 0; j < it->second.size(); ++j)
+        for (auto& word : request) {
+            for (auto stack : word.second)
             {
-                if (it->second.size() != 0) {
-                    buffer[it->second[j].doc_id] += it->second[j].count;
+                if (!word.second.empty()) {
+                    buffer[stack.doc_id] += (float)stack.count;
                 }
             }
         }
-        for (auto iter = buffer.begin(); iter != buffer.end(); iter++) {
-              frequency[i].push_back({iter->first, iter->second});
+        for (const auto& iter : buffer) { // заполнение ответа
+            frequency[counter].push_back({iter.first, iter.second});
         }
         buffer.clear();
-        std::sort(frequency[i].begin(),frequency[i].end(), my_cmp);
+        // сортировка по релевантности begin > end
+        std::sort(frequency[counter].begin(),frequency[counter].end(), my_cmp);
+        counter ++;
     }
 
-    for (int i = 0; i < frequency.size(); ++i)// расчет релевантности
+    for (auto& request : frequency)
     {
         Rmax = 0;
-        for (int j = 0; j < frequency[i].size(); ++j) {
-            Rmax = (Rmax < frequency[i][j].rank) ? frequency[i][j].rank : Rmax;
+        for (const auto& value : request) {
+            Rmax = (Rmax < value.rank) ? value.rank : Rmax; // расчет абсолютной релевантности
         }
-        for (int j = 0; j < frequency[i].size(); ++j) {
-            frequency[i][j].rank /= Rmax;
+        for (auto& value : request) {
+            value.rank /= Rmax;   // расчет относительной релевантности документов
         }
     }
     return frequency;

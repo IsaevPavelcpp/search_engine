@@ -32,12 +32,11 @@ struct RelativeIndex{
 
 class ConverterJSON
         {
-    configuration config;
+    int max_response = 0;
 public:
-    configuration GetTextDocuments();
-    int GetResponsesLimit();
-    std::vector<std::string> GetRequests();
-    void putAnswers(std::vector<std::vector<RelativeIndex>>answers);
+    configuration GetTextDocuments(configuration& config);
+    static std::vector<std::string> GetRequests() noexcept;
+    void putAnswers(std::vector<std::vector<RelativeIndex>>answers)const noexcept;
         };
 
 

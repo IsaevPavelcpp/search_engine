@@ -1,6 +1,6 @@
 {
   "config": {
-    "name": "almostYandex",
+    "name": "Search Server",
     "version": 1,
     "max_responses": 5
   },
