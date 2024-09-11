@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
-#include <map>
+#include <unordered_map>
 #include "gtest/gtest.h"
-#include <mutex>
+#include <shared_mutex>
 #include <thread>
 
 struct Entry {
@@ -24,7 +24,7 @@ void  lineDivider(std::vector<std::string>& docs, const std::string& input_docs)
 class InvertedIndex
 {
     std::vector<std::vector<std::string>> docs;
-    std::map<std::string, std::vector<Entry>> freq_dictionary;
+    std::unordered_map<std::string, std::vector<Entry>> freq_dictionary;
     int i = 0;
 public:
     void UpdateDocumentBase(std::vector<std::string> input_docs) noexcept;

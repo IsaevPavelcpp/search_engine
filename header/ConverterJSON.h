@@ -12,15 +12,19 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <thread>
+#include <chrono>
 
+// структура для записи конфига
 struct configuration
 {
     std::string name = "uncnown";
     int version = 0;
     int max_resp = 0;
     std::vector <std::string> files;
-}; // структура для записи конфига
+};
 
+//структура для хранения номера документа и частоты совпадений слова
 struct RelativeIndex{
     size_t doc_id = 0;
     float rank = 0;

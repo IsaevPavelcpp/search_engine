@@ -2,10 +2,11 @@
 
 
 int main() {
-    ::testing::InitGoogleTest();
+
     ConverterJSON convert_json;
     configuration config_str;
     int enter;
+    InvertedIndex II;
     //проверка исключений config файла
     try {
         convert_json.GetTextDocuments(config_str);
@@ -27,19 +28,20 @@ int main() {
         std::ifstream file(config_str.files[i]);
         std::getline(file, docs[i]);
     }
-    InvertedIndex II;
-    II.UpdateDocumentBase(docs);
 
     std::cout << "1 - Test\n2 - Start\n3 - Exit\n";
     std::cin >> enter;
     if (enter == 1) {
+        ::testing::InitGoogleTest();
         return RUN_ALL_TESTS();
     } else if (enter == 2) {
+        II.UpdateDocumentBase(docs);
         SearchServer SS(II);
         convert_json.putAnswers(SS.search(ConverterJSON::GetRequests()));
 
     } else {
         return 0;
     }
+
 
 }
