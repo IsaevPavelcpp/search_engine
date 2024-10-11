@@ -1,6 +1,0 @@
-"C:\JetBrains\CLion 2024.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/JetBrains/CLion 2024.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S "D:\my project\search-engine" -B "D:\my project\search-engine\cmake-build-debug-visual-studio"
--- Using the multi-header code from D:/my project/search-engine/nlohmann_json/include/
--- Could NOT find Python (missing: Python_EXECUTABLE Interpreter) 
--- Configuring done (8.7s)
--- Generating done (0.0s)
--- Build files have been written to: D:/my project/search-engine/cmake-build-debug-visual-studio
