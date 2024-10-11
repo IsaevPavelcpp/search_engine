@@ -1,0 +1,5 @@
+if(EXISTS "D:/my project/search-engine/cmake-build-debug-visual-studio/GTest/search_engine[2]_tests.cmake")
+  include("D:/my project/search-engine/cmake-build-debug-visual-studio/GTest/search_engine[2]_tests.cmake")
+else()
+  add_test(search_engine_NOT_BUILT search_engine_NOT_BUILT)
+endif()

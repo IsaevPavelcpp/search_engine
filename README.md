@@ -31,13 +31,12 @@ InvertedIndex, чтобы SearchServer мог узнать частоту сло
 Всего в проекте 6 тестов. 4 для класса InvertedIndex и 2 для класса searchServer.
 3) В проекте используется обработка исключений.
    Возможные:
-   1.class ConverterJson:
+   1)class ConverterJson:
    1)ERROR: config file is missing(ошибка возникает при отсутвии файла конфигурации)
    2)ERROR: file is empty(ошибка возникает если список документов в файле конфигурации пустой)
-   2. class SearchServer
-      1)WARN: A comma was found in the request, please list the request only separated by a space(ошибка возникает при попытки перечислить запрос через запятую.
+   2)class SearchServer
+   1. WARN: A comma was found in the request, please list the request only separated by a space(ошибка возникает при попытки перечислить запрос через запятую.
       Все слова в запросе должны быть разделены только пробелом)
-      2)FATAL: division by zero(ошибка может возникнуть только в результате сбоя программы, при котором будет деление на 0)
+   2. FATAL: division by zero(ошибка может возникнуть только в результате сбоя программы, при котором будет деление на 0)
 
-
-При запуске проекта можно запустить тесты (1), основную программу(2), либо завершить работу(любая другая кнопка).
+	  

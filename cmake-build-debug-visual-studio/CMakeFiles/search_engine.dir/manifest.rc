@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "D:/my project/search-engine/cmake-build-debug-visual-studio/CMakeFiles/search_engine.dir/embed.manifest"
