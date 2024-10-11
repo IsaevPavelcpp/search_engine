@@ -1,6 +1,6 @@
 
 #include "../header/ConverterJSON.h"
-
+#include <iomanip>
 
 //считывает конфиг из json
     configuration ConverterJSON::GetTextDocuments(configuration& config)
@@ -50,41 +50,41 @@
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     bool found;
     std::ofstream file("..\\answers.json");
-    file << "{\n\t\"answers\":{" << std::endl;
+    file << "{\"answers\":{" << std::endl;
     for (int i = 0; i != answers.size(); ++i) {
-        file << "\t\t\"request " + std::to_string(i) << "\":{" << std::endl;
+        file << std::right << std::setw(13) << "\"request " + std::to_string(i) << "\":{" << std::endl;
         if (answers[i].empty()) // проверка на наличие совпадений
         {
             found = false; // если совпадений нет запись result: false
-            file << "\t\t\t\"result\":" << std::boolalpha << found << std::endl;
+            file << std::right << std::setw(15) << "\"result\":" << std::boolalpha << found << std::endl;
         }
         else
         {
             found = true;
-            file << "\t\t\t\"result\":" << std::boolalpha << found << "," << std::endl;
+            file << std::right << std::setw(15) << "\"result\":" << std::boolalpha << found << "," << std::endl;
             if (answers[i].size() > 1) //если совпадения есть -> проверка на кол-во совпадений
             {                         //запись relevance и перечисление совпадений
-                file << "\t\t\t\"relevance\":{\n";
+                file << std::right << std::setw(23) << "\"relevance\":{\n";
                 for (int j = 0; j != answers[i].size(); ++j) {
                     if (j >= max_response) {
                         break;
                     }
-                    file << "\t\t\t\t\"docid\": " << answers[i][j].doc_id << ", ";
+                    file << std::right << std::setw(21) << "\"docid\": " << answers[i][j].doc_id << ", ";
                     if (j == answers[i].size() - 1) {
                         file << "\"rank\": " << answers[i][j].rank << std::endl;
                     } else { file << "\"rank\": " << answers[i][j].rank << "," << std::endl; }
                 }
             } else {// если совпадение только одно оно записывается без relevance
-                file << "\t\t\t\"docid\": " << answers[i][0].doc_id << ", ";
+                file << std::right << std::setw(21) << "\"docid\": " << answers[i][0].doc_id << ", ";
                 file << "\"rank\": " << answers[i][0].rank << std::endl;
             }
-            file << "\t\t\t}\n";
+            file << std::right << std::setw(12) << "}\n";
         }
         if (i == answers.size() - 1) {
-            file << "\t\t}\n";
-        } else { file << "\t\t},\n"; }
+            file << std::right << std::setw(7) <<"}\n";
+        } else { file << std::right << std::setw(6) <<"},\n"; }
     }
-    file << "\t}\n }";
+    file << "}}";
     file.close();
     std::cout << "The data has been sent.\n";
 }

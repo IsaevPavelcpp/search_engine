@@ -4,7 +4,7 @@
 1803	2202	7503690448244357	GTest/GtestTests.exe	d7664a5c34f7f13d
 41	1467	7494888135054598	googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	66e0ea80eec74d7c
 3	1786	7503660143043969	CMakeFiles/search_engine.dir/source_file/main.cpp.obj	9ff981868af4dff9
-11	1702	7503690112845865	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+4	1582	7503719019674517	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
 15	3140	7494888134792041	googletest/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.obj	3d497134b9ce4d6a
 1803	2202	7503690448244357	GTest/GtestTests[1]_tests.cmake	d7664a5c34f7f13d
 33	1633	7494888134964683	googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	54d47eb323291363
@@ -16,21 +16,67 @@
 2688	2800	7503637440952546	lib/gtest.lib	4493325779781394
 3140	3299	7494888166045419	lib/gmock_main.lib	3bd89db9b9273a31
 3	1483	7503690112765313	CMakeFiles/search_engine.dir/src/main.cpp.obj	aa4d2d542ae58629
-1702	3445	7503690147082635	search_engine.exe	d9b73f0d3f450126
+1582	3260	7503719052140875	search_engine.exe	d9b73f0d3f450126
 46	2000	7503642536444925	CMakeFiles/search_engine.dir/GTest/tests.cpp.obj	fa7d1492bc0d00cf
-3	8719	7503690821285189	build.ninja	cedcaabc0754d540
+2	8737	7503690821285189	build.ninja	cedcaabc0754d540
 7	2688	7503637414130813	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	d671eb108e8bc8dc
-1702	3445	7503690147082635	search_engine[1]_tests.cmake	d9b73f0d3f450126
-1702	3445	7503690147082635	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+1582	3260	7503719052140875	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1582	3260	7503719052140875	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
 8	1664	7503662321404942	GTest/CMakeFiles/GTestSearchEngine.dir/tests.cpp.obj	d2a93fe2dd8a3ff2
 24	742	7503690426568166	GTest/CMakeFiles/GtestTests.dir/__/src/InvertedIndex.cpp.obj	3b27c1c9a6708e82
 22	2224	7503670698705262	GTest/CMakeFiles/GtestTests.dir/__/src/ConverterJSON.cpp.obj	9b38f826c4ed3ed9
 7	1741	7503685553761782	GTest/CMakeFiles/GtestTests.dir/tests.cpp.obj	88471930ede424a5
-1741	2256	7503685576153275	D:/my project/search-engine/GTest/GtestTests.exe	d76dc8c939185e39
 1803	2202	7503690448244357	D:/my project/search-engine/cmake-build-debug-visual-studio/GTest/GtestTests[1]_tests.cmake	d7664a5c34f7f13d
 32	1669	7503690426644361	GTest/CMakeFiles/GtestTests.dir/__/src/SearchServer.cpp.obj	4e9cfeb937c1170b
 4	1026	7503690426366919	GTest/CMakeFiles/GtestTests.dir/TestInvertedIndex.cpp.obj	951d737a081457e6
 14	1803	7503690426459751	GTest/CMakeFiles/GtestTests.dir/TestSearchServer.cpp.obj	6938f57ada897ca7
 19	718	7503690112917346	CMakeFiles/search_engine.dir/src/InvertedIndex.cpp.obj	fe43dbd29c09a972
 27	1690	7503690113009306	CMakeFiles/search_engine.dir/src/SearchServer.cpp.obj	9d168dd4df10ee88
-2	8737	7503690821285189	build.ninja	cedcaabc0754d540
+5	1650	7503719804067261	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1651	3331	7503719837230647	search_engine.exe	d9b73f0d3f450126
+1651	3331	7503719837230647	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1651	3331	7503719837230647	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+3	1590	7503720184954685	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1591	3294	7503720217747731	search_engine.exe	d9b73f0d3f450126
+1591	3294	7503720217747731	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1591	3294	7503720217747731	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+4	1641	7503720421610698	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1641	3323	7503720454707251	search_engine.exe	d9b73f0d3f450126
+1641	3323	7503720454707251	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1641	3323	7503720454707251	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+3	1619	7503720568182734	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1620	3310	7503720601131945	search_engine.exe	d9b73f0d3f450126
+1620	3310	7503720601131945	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1620	3310	7503720601131945	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+4	1605	7503720923601464	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1606	3310	7503720956553639	search_engine.exe	d9b73f0d3f450126
+1606	3310	7503720956553639	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1606	3310	7503720956553639	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+4	1600	7503721072354602	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1601	3275	7503721104966641	search_engine.exe	d9b73f0d3f450126
+1601	3275	7503721104966641	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1601	3275	7503721104966641	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+4	1629	7503721293241907	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1629	3319	7503721326290565	search_engine.exe	d9b73f0d3f450126
+1629	3319	7503721326290565	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1629	3319	7503721326290565	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+4	1582	7503722029701507	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1583	3255	7503722062127139	search_engine.exe	d9b73f0d3f450126
+1583	3255	7503722062127139	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1583	3255	7503722062127139	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+3	1600	7503722206541209	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1600	3278	7503722239190436	search_engine.exe	d9b73f0d3f450126
+1600	3278	7503722239190436	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1600	3278	7503722239190436	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+5	1674	7503722330963112	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1674	3369	7503722364511696	search_engine.exe	d9b73f0d3f450126
+1674	3369	7503722364511696	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1674	3369	7503722364511696	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+6	1974	7503722852790689	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1974	3686	7503722889486473	search_engine.exe	d9b73f0d3f450126
+1974	3686	7503722889486473	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1974	3686	7503722889486473	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126
+3	1906	7503723080131180	CMakeFiles/search_engine.dir/src/ConverterJSON.cpp.obj	4c12f9259719973f
+1907	3617	7503723116158476	search_engine.exe	d9b73f0d3f450126
+1907	3617	7503723116158476	search_engine[1]_tests.cmake	d9b73f0d3f450126
+1907	3617	7503723116158476	D:/my project/search-engine/cmake-build-debug-visual-studio/search_engine[1]_tests.cmake	d9b73f0d3f450126

@@ -1,31 +1,29 @@
-{
-	"answers":{
-		"request 0":{
-			"result":true,
-			"relevance":{
-				"docid": 0, "rank": 1,
-				"docid": 2, "rank": 0.714286,
-				"docid": 3, "rank": 0.571429,
-				"docid": 1, "rank": 0.428571
-			}
-		},
-		"request 1":{
-			"result":true,
-			"relevance":{
-				"docid": 0, "rank": 1,
-				"docid": 3, "rank": 0.25
-			}
-		},
-		"request 2":{
-			"result":false
-		},
-		"request 3":{
-			"result":true,
-			"relevance":{
-				"docid": 0, "rank": 1,
-				"docid": 1, "rank": 0.166667,
-				"docid": 2, "rank": 0.166667
-			}
-		}
-	}
- }
+{"answers":{
+   "request 0":{
+      "result":true,
+         "relevance":{
+            "docid": 0, "rank": 1,
+            "docid": 2, "rank": 0.714286,
+            "docid": 3, "rank": 0.571429,
+            "docid": 1, "rank": 0.428571
+          }
+   },
+   "request 1":{
+      "result":true,
+         "relevance":{
+            "docid": 0, "rank": 1,
+            "docid": 3, "rank": 0.25
+          }
+   },
+   "request 2":{
+      "result":false
+   },
+   "request 3":{
+      "result":true,
+         "relevance":{
+            "docid": 0, "rank": 1,
+            "docid": 1, "rank": 0.166667,
+            "docid": 2, "rank": 0.166667
+          }
+     }
+}}
